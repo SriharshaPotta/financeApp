@@ -1,50 +1,63 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function ProfilePage() {
+export default function HomePage() {
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Profile</Text>
+        <Text style={styles.headerText}>Welcome Back, [User]!</Text>
       </View>
 
-      {/* Profile Image and Name */}
-      <View style={styles.profileContainer}>
-        <Image
-          source={{ uri: 'https://via.placeholder.com/100' }} // Placeholder image
-          style={styles.profileImage}
-        />
-        <Text style={styles.displayName}>John Doe</Text>
-        <TouchableOpacity style={styles.editButton}>
-          <Text style={styles.editButtonText}>Edit Profile</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Global Rank */}
-      <View style={styles.rankContainer}>
-        <Text style={styles.rankText}>Global Rank: Diamond</Text>
-      </View>
-
-      {/* Financial Trends Graph */}
+      {/* Account Balances */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Financial Trends</Text>
-        <View style={styles.graphContainer}>
-          {/* Placeholder for Graph */}
-          <Image
-            source={{ uri: 'https://via.placeholder.com/300x150' }}
-            style={styles.graphImage}
-          />
+        <Text style={styles.sectionTitle}>Account Balances</Text>
+        <View style={styles.balanceContainer}>
+          <View style={styles.balanceItem}>
+            <Text style={styles.balanceTitle}>Checking</Text>
+            <Text style={styles.balanceAmount}>$1,500.00</Text>
+          </View>
+          <View style={styles.balanceItem}>
+            <Text style={styles.balanceTitle}>Savings</Text>
+            <Text style={styles.balanceAmount}>$3,250.00</Text>
+          </View>
         </View>
       </View>
 
-      {/* Past Financial Summaries */}
+      {/* Income & Expense Summary */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Past Financial Summaries</Text>
+        <Text style={styles.sectionTitle}>Income & Expense Summary</Text>
         <View style={styles.summaryContainer}>
-          <Text style={styles.summaryText}>August 2024: Savings up by 12%</Text>
-          <Text style={styles.summaryText}>July 2024: Spent $200 less on dining</Text>
-          <Text style={styles.summaryText}>June 2024: Reached budget goal</Text>
+          <Text style={styles.summaryText}>Income: $2,000.00</Text>
+          <Text style={styles.summaryText}>Expenses: $1,200.00</Text>
+        </View>
+      </View>
+
+      {/* Quick Actions */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Quick Actions</Text>
+        <View style={styles.quickActionsContainer}>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text style={styles.actionButtonText}>Add Income</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text style={styles.actionButtonText}>Add Expense</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text style={styles.actionButtonText}>View Reports</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Spending Trends Graph */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Spending Trends</Text>
+        <View style={styles.graphContainer}>
+          {/* Placeholder for Graph */}
+          <Image 
+            source={{ uri: 'https://via.placeholder.com/300x150' }} 
+            style={styles.graphImage} 
+          />
         </View>
       </View>
     </ScrollView>
@@ -68,43 +81,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
   },
-  profileContainer: {
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 16,
-  },
-  displayName: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  editButton: {
-    backgroundColor: '#4CAF50',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-  },
-  editButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-  },
-  rankContainer: {
-    backgroundColor: '#FFFFFF',
-    padding: 16,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  rankText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#888888',
-  },
   section: {
     marginBottom: 24,
   },
@@ -112,6 +88,51 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 12,
+  },
+  balanceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  balanceItem: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    marginRight: 8,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  balanceTitle: {
+    fontSize: 16,
+    color: '#888888',
+  },
+  balanceAmount: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 8,
+  },
+  summaryContainer: {
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    borderRadius: 8,
+  },
+  summaryText: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  quickActionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  actionButton: {
+    backgroundColor: '#4CAF50',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  actionButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
   },
   graphContainer: {
     backgroundColor: '#FFFFFF',
@@ -123,13 +144,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 150,
   },
-  summaryContainer: {
-    backgroundColor: '#FFFFFF',
-    padding: 16,
-    borderRadius: 8,
-  },
-  summaryText: {
-    fontSize: 16,
-    marginBottom: 8,
-  },
 });
+
+
+

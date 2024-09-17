@@ -1,52 +1,50 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Switch } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function FinancialManagement() {
+export default function ProfilePage() {
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Financial Management</Text>
+        <Text style={styles.headerText}>Profile</Text>
       </View>
 
-      {/* Monthly/Weekly Summary */}
+      {/* Profile Image and Name */}
+      <View style={styles.profileContainer}>
+        <Image
+          source={{ uri: 'https://via.placeholder.com/100' }} // Placeholder image
+          style={styles.profileImage}
+        />
+        <Text style={styles.displayName}>John Doe</Text>
+        <TouchableOpacity style={styles.editButton}>
+          <Text style={styles.editButtonText}>Edit Profile</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Global Rank */}
+      <View style={styles.rankContainer}>
+        <Text style={styles.rankText}>Global Rank: Diamond</Text>
+      </View>
+
+      {/* Financial Trends Graph */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Monthly/Weekly Summary</Text>
+        <Text style={styles.sectionTitle}>Financial Trends</Text>
+        <View style={styles.graphContainer}>
+          {/* Placeholder for Graph */}
+          <Image
+            source={{ uri: 'https://via.placeholder.com/300x150' }}
+            style={styles.graphImage}
+          />
+        </View>
+      </View>
+
+      {/* Past Financial Summaries */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Past Financial Summaries</Text>
         <View style={styles.summaryContainer}>
-          <Text style={styles.summaryText}>Income: $4,000.00</Text>
-          <Text style={styles.summaryText}>Expenses: $3,200.00</Text>
-          <Text style={styles.summaryText}>Savings: $800.00</Text>
-        </View>
-      </View>
-
-      {/* Budget Insights */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Budget Insights</Text>
-        <View style={styles.budgetContainer}>
-          <Text style={styles.budgetText}>You spent 10% less on dining out this month!</Text>
-          <Text style={styles.budgetText}>Consider increasing your savings by $100 next month.</Text>
-        </View>
-      </View>
-
-      {/* Parental Controls */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Parental Controls</Text>
-        <View style={styles.parentalControlsContainer}>
-          <Text style={styles.controlText}>Enable Parental Controls:</Text>
-          <Switch value={true} onValueChange={() => {}} />
-          <Text style={styles.controlText}>Set Spending Limit: $500</Text>
-        </View>
-      </View>
-
-      {/* Bill Splitting */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Bill Splitting</Text>
-        <View style={styles.billSplittingContainer}>
-          <Text style={styles.billText}>Shared Rent: $1,200</Text>
-          <Text style={styles.billText}>Your Share: $600</Text>
-          <TouchableOpacity style={styles.payButton}>
-            <Text style={styles.payButtonText}>Pay Your Share</Text>
-          </TouchableOpacity>
+          <Text style={styles.summaryText}>August 2024: Savings up by 12%</Text>
+          <Text style={styles.summaryText}>July 2024: Spent $200 less on dining</Text>
+          <Text style={styles.summaryText}>June 2024: Reached budget goal</Text>
         </View>
       </View>
     </ScrollView>
@@ -70,6 +68,43 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
   },
+  profileContainer: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 16,
+  },
+  displayName: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  editButton: {
+    backgroundColor: '#4CAF50',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+  },
+  editButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+  },
+  rankContainer: {
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  rankText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#888888',
+  },
   section: {
     marginBottom: 24,
   },
@@ -77,6 +112,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 12,
+  },
+  graphContainer: {
+    backgroundColor: '#FFFFFF',
+    padding: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  graphImage: {
+    width: '100%',
+    height: 150,
   },
   summaryContainer: {
     backgroundColor: '#FFFFFF',
@@ -86,45 +131,5 @@ const styles = StyleSheet.create({
   summaryText: {
     fontSize: 16,
     marginBottom: 8,
-  },
-  budgetContainer: {
-    backgroundColor: '#FFFFFF',
-    padding: 16,
-    borderRadius: 8,
-  },
-  budgetText: {
-    fontSize: 16,
-    marginBottom: 8,
-  },
-  parentalControlsContainer: {
-    backgroundColor: '#FFFFFF',
-    padding: 16,
-    borderRadius: 8,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  controlText: {
-    fontSize: 16,
-  },
-  billSplittingContainer: {
-    backgroundColor: '#FFFFFF',
-    padding: 16,
-    borderRadius: 8,
-  },
-  billText: {
-    fontSize: 16,
-    marginBottom: 8,
-  },
-  payButton: {
-    backgroundColor: '#4CAF50',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  payButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
   },
 });

@@ -28,7 +28,7 @@ export default function TabLayout() {
         headerShown: useClientOnlyValue(false, true),
       }}>
       <Tabs.Screen
-        name="index"
+        name="profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => <Ionicons name="person-outline" color={color} size = {size}/>,
@@ -49,17 +49,17 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size }) => <Ionicons name="code" color={color} size = {size} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" color={color} size = {size} />,
         }}
       />
       <Tabs.Screen
         name="finances"
         options={{
           title: 'Finances',
-          tabBarIcon: ({ color, size }) => <Ionicons name="code" color={color} size = {size}/>,
+          tabBarIcon: ({ color, size }) => <Ionicons name="wallet-outline" color={color} size = {size}/>,
         }}
       />
     </Tabs>
