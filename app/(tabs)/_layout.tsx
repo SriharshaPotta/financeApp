@@ -32,6 +32,7 @@ export default function TabLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => <Ionicons name="person-outline" color={color} size = {size}/>,
+          headerShown: false,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -52,6 +53,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
+          headerShown: false,
           tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" color={color} size = {size} />,
         }}
       />
@@ -59,6 +61,7 @@ export default function TabLayout() {
         name="finances"
         options={{
           title: 'Finances',
+          headerShown: false,
           tabBarIcon: ({ color, size }) => <Ionicons name="wallet-outline" color={color} size = {size}/>,
         }}
       />
